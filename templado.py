@@ -85,3 +85,19 @@ coord = {
     'Yucatan': (20.967, -89.6237),
     'Zacatecas': (22.7709, -102.5833)
 }
+
+# Genera una ruta inicial aleatoria
+ruta = list(coord.keys())
+random.shuffle(ruta)
+
+# Ejecuta el algoritmo de Simulated Annealing
+mejor_ruta = simulated_annealing(ruta, coord)
+
+# Evalúa la distancia total del mejor recorrido
+distancia_total = evalua_ruta(mejor_ruta, coord)
+
+# Muestra el resultado en la terminal
+print("Mejor ruta:")
+for ciudad in mejor_ruta:
+    print(ciudad)
+print("Distancia total:", distancia_total)
